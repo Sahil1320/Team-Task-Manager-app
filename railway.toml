@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+
+[build.env]
+NODE_ENV = "production"
+
+[deploy]
+startCommand = "cd server && node src/index.js"
