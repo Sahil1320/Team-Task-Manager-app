@@ -86,7 +86,7 @@ A full-stack collaborative task management application where teams can create pr
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/team-task-manager.git
+git clone https://github.com/Sahil1320/Team-Task-Manager-app.git
 cd team-task-manager
 ```
 
