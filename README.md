@@ -51,6 +51,9 @@ A full-stack collaborative task management application where teams can create pr
 | Styling | Vanilla CSS (Custom Design System) |
 | Deployment | Render |
 
+Demonstration Video - https://www.loom.com/share/e648f6b546dc4f639c0c22dbf5339ae5
+
+------------------------
 ## 📁 Project Structure
 
 ```
