@@ -49,7 +49,7 @@ A full-stack collaborative task management application where teams can create pr
 | Database | MongoDB (Mongoose ODM) |
 | Auth | JWT (JSON Web Tokens) |
 | Styling | Vanilla CSS (Custom Design System) |
-| Deployment | Railway |
+| Deployment | Render |
 
 ## 📁 Project Structure
 
@@ -72,6 +72,7 @@ A full-stack collaborative task management application where teams can create pr
 │   │   ├── routes/          # API routes
 │   │   └── index.js         # Server entry point
 │   └── .env.example
+├── render.yaml          # Render deployment config
 ├── package.json
 └── README.md
 ```
@@ -122,23 +123,29 @@ npm run dev:server  # Backend on port 5000
 npm run dev:client  # Frontend on port 5173
 ```
 
-## 🚀 Deployment (Railway)
+## 🚀 Deployment (Render)
+
+This app is deployed as a **single Web Service** on [Render](https://render.com). The Express server serves the built React frontend in production mode, so no separate frontend hosting is needed.
 
 ### Steps:
 1. Push code to GitHub
-2. Create a new project on [Railway](https://railway.app)
-3. Add MongoDB plugin or use MongoDB Atlas
-4. Add a new service from your GitHub repo
-5. Set environment variables:
-   - `MONGODB_URI` - Your MongoDB connection string
-   - `JWT_SECRET` - A strong random secret
-   - `JWT_EXPIRES_IN` - Token expiry (e.g., `7d`)
-   - `NODE_ENV` - `production`
-   - `PORT` - Railway auto-assigns this
-6. Set build command: `cd client && npm install && npm run build`
-7. Set start command: `cd server && npm start`
+2. Log in to [Render](https://render.com) → **New +** → **Web Service**
+3. Connect your GitHub repository
+4. Configure the service:
+   - **Root Directory:** *(leave blank)*
+   - **Runtime:** `Node`
+   - **Build Command:** `npm install && npm run build`
+   - **Start Command:** `npm start`
+5. Add environment variables:
+   - `MONGODB_URI` — Your MongoDB Atlas connection string
+   - `JWT_SECRET` — A strong random secret
+   - `JWT_EXPIRES_IN` — Token expiry (e.g., `7d`)
+   - `NODE_ENV` — `production`
+6. Click **Create Web Service** — Render will build and deploy automatically.
 
-The server serves the built React app in production mode.
+> **Note:** Render's free tier spins down after inactivity. The first request after idle may take ~30 seconds to wake up.
+
+The server automatically serves the built React app from `client/dist` in production mode.
 
 ## 📡 API Endpoints
 
